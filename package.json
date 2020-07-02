@@ -1,0 +1,25 @@
+{
+  "name": "MoneyTokserver",
+  "version": "1.0.0",
+  "description": "express server deployed on Heroku for MoneyTok",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmandaAmos/MoneyTokserver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmandaAmos/MoneyTokserver/issues"
+  },
+  "homepage": "https://github.com/AmandaAmos/MoneyTokserver#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "node": "^14.5.0"
+  }
+}
