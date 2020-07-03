@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const sequelize = require("sequelize");
 const path =require("path");
-const routes = require("./routes");
+const routes = require("./routes")(app);
 
 
 
@@ -20,8 +20,12 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+//Require our models for syncing
+const db = require("./models");
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+// Syncing our sequilize models and then starting our Express APP
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+  console.log(`🌎  ==> App now listening on PORT ${PORT}!`);
+  });
 });
