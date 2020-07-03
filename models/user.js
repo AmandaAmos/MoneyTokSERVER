@@ -11,10 +11,12 @@ module.exports = function(sequelize, DataTypes){
         },
         username: {
             type: DataTypes.STRING,
+            unique: True,
             allowNull: false
         },
         email: {
             type: DataTypes.STRING,
+            unique: True,
             allowNull: false
         },
         password: {
