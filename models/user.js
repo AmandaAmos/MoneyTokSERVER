@@ -9,24 +9,24 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         },
-        username: {
-            type: DataTypes.STRING,
-            unique: True,
-            allowNull: false
-        },
         email: {
             type: DataTypes.STRING,
-            unique: True,
+            unique: true,
+            allowNull: false
+        },
+        username: {
+            type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        location: {
+        /*location: {
             type: DataTypes.STRING,
             allowNull: false
-        },
+        },*/
         balance: {
             type: DataTypes.INTEGER,
             allowNull: false
