@@ -50,24 +50,74 @@ app.get("/api/user/:id", function(req, res) {
      })
  })
 
+ //create new budget
+ app.post("/api/budget", function (req, res) {
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    };
+    db.Budget.create({
+        description: req.body.description,
+        amount: req.body.amount
+
+    }).then(function (Budget) {
+       // send back the budget id to client
+       res.json(Budget.id);
+        console.log("Inserted a new user budget into our budget table!");
+    }).catch(function(err){
+      //if error
+        console.log(err);
+        //sends an error to the client
+        res.send(false);
+    })
+})
+
+//report a new transaction
+app.post("/api/transaction", function (req, res) {
+
+    db.Transaction.create({
+        description: req.body.description,
+        note: req.body.note,
+        deposit: req.body.deposit,
+        withdrawal: req.body.withdrawal,
+        total: req.body.total,
+
+
+    }).then(function (Transaction) {
+       // send back the budget id to client
+       res.json(Transaction.id);
+        console.log("Reported a new user transaction into our transaction table!");
+    }).catch(function(err){
+      //if error
+        console.log(err);
+        //sends an error to the client
+        res.send(false);
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
