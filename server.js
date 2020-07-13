@@ -1,8 +1,6 @@
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
-const axios = require("axios");
-const sequelize = require("sequelize");
 const SequelizeStore = require("connect-session-sequelize") (session.Store);
 const db = require("./models");
 
@@ -38,6 +36,7 @@ require("./routes/apiRoutes") (
   app, 
   passport, 
   isAuthenticatedMiddleware,
+  isNotAuthenticatedMiddleware
 );
 
 require("./routes/userRoutes") (

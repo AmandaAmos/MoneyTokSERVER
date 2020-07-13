@@ -14,15 +14,15 @@ module.exports = function(sequelize, DataTypes){
             validate: {
                 notEmpty: true
             },
- }});
+    }});
 
- Budget.associate = function(models) {
-     Budget.belongsTo(models.User, {
-         foreignKey: {
-             allowNull: false
-         }
-     });
- };
+    Budget.associate = function(models) {
+        Budget.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false,
+            },
+        });
+    };  
 
-return Budget;
+    return Budget;
 };

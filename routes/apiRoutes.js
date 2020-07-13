@@ -5,10 +5,10 @@ const nodemailer = require("nodemailer");
 module.exports = function (
     app,
     passport,
-    nodemailer,
-    isAuthenticatedMiddleware
+    isAuthenticatedMiddleware, 
+    isNotAuthenticatedMiddleware
 ) {
-    app.post("/login", (req,res) => {
+    app.post("/login", isNotAuthenticatedMiddleware(), (req,res) => {
         db.Users.findOne({
             where: { username: req.body.username },
         }).then(async (result) => {
@@ -62,7 +62,7 @@ module.exports = function (
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'steffisbootcampdrive@gmail.com',
+                user: GMAIL,
                 pass: GMAILPASSWORD,
             }
         });
