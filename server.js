@@ -6,6 +6,10 @@ const db = require("./models");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+cors = require("cors");
+
+app.use(cors());
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
