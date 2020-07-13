@@ -8,11 +8,12 @@ const axios = require("axios");
 module.exports = function (app) {
   //GET route for retrieving savedArticles
   app.get("./models/userarticle.js", function (req, res) {
-    db.Post.findAll({}).then(function (dbsavedArticles) {
+    db.savedArticles.findAll({}).then(function (dbsavedArticles) {
       res.json(dbsavedArticles);
     });
   });
 
+  
   //PUT route for updating posts
   app.put("./models/userarticle.js", function (res, req) {
     db.savedArticles
