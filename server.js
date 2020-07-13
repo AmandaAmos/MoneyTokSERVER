@@ -24,10 +24,18 @@ app.use(
     }),
     resave: false,
     saveUninitialized: false,
+    //Life of the page is 10 minutes of idle time signed in before auto logout
     cookie: { maxAge: 600000},
     rolling: true,
   })
 );
+
+app.get('/', function (req, res) {
+  connection.query('select * from user', function (error, results, fields) {
+    if (error) throw error;
+    res.end(JSON.stringify(results));
+  });
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
