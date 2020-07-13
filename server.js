@@ -24,6 +24,7 @@ if (process.env.NODE_ENV === "production") {
 // =============================================================
 require("./routes/articleApiRoutes/userarticleApiRoutes")(app);
 require("./routes/articleApiRoutes/articleApiRoutes")(app);
+require("./routes/transactionApiRoutes")(app);
 
 
 app.use(

@@ -14,11 +14,11 @@ module.exports = function(sequelize, DataTypes){
         },
         deposit: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: true, 
         },
         withdrawal: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         total: {
             type: DataTypes.INTEGER,
