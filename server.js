@@ -20,6 +20,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Routes for articles
+// =============================================================
+require("./routes/articleApiRoutes/userarticleApiRoutes")(app);
+require("./routes/articleApiRoutes/articleApiRoutes")(app);
+
+
 app.use(
   session ({
     secret: "keyboard cat",
