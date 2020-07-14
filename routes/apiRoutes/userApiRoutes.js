@@ -28,7 +28,7 @@ router.get("/:id", function (req, res) {
 });
 
 //create new article
-router.post("/", function (req, res) {
+app.post("/", function (req, res) {
   db.article
     .create({
       title: req.body.title,
