@@ -28,5 +28,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 }

@@ -13,6 +13,8 @@ module.exports = function (app) {
     });
   });
 
+  //POST to create new article 
+
   
   //PUT route for updating posts
   app.put("./models/userarticle.js", function (res, req) {

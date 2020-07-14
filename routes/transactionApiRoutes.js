@@ -3,19 +3,23 @@ const db = require("../models");
 
 module.exports = function(app) {
     app.get("./models/transaction", function(req, res) {
-        db.transaction.findAll({}).then(function (dbtransaction) {
-            res.json(dbtransaction);
+        db.transaction.findAll({
+            where: { id: req.user.Transaction},
+        }).then(async (result) => {
+            res.render("transaction")
         });
     });
     //GET route for calling deposit, withdrawal, total
-    app.get("./models/transaction.js", function(req, res) {
+    app.get("./models/transaction", function(req, res) {
         db.transaction.findAll({
             where: {
                 deposit: req.params.deposit
             }
         })
         .then(function(dbtransaction) {
-            res.json(dbtransaction);
+            res.render("transaction", {
+                deposit: req.transaction.deposit
+            });
         }); 
     });
 
@@ -26,7 +30,7 @@ module.exports = function(app) {
             }
         })
         .then(function(dbTransaction) {
-            res.json(dbTransaction);
+            res.render("transaction", "dashboard");
         }); 
     });app.get("./models/transaction.js", function(req, res) {
         db.Transaction.findAll({
@@ -35,7 +39,7 @@ module.exports = function(app) {
             }
         })
         .then(function(dbTransaction) {
-            res.json(dbTransaction);
+            res.render("transaction", "dashboard");
         }); 
     });
 
